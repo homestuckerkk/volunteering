@@ -3,7 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var hbs = require("hbs")
+var { create } = require('express-handlebars');
+
 
 var home = require("./routes/home");
 var reg = require("./routes/reg");
@@ -19,10 +20,19 @@ var form1 = require("./routes/form1")
 
 var app = express();
 
+var hbs = create({
+  extname: '.hbs', 
+  defaultLayout: __dirname + "/views/layouts/index.hbs",
+  layoutsDir: path.join(__dirname, "../views/layouts"),
+  partialsDir: path.join(__dirname, "/views/partials")
+});
 
-app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'hbs');
-hbs.registerPartials(__dirname + '/views/partials')
+app.set('views', './views');
+app.use(express.static('public'));
+app.set('views', path.join(__dirname, 'views'));
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -42,12 +52,12 @@ app.use("/registering", reg1);
 app.use("/regcompany", regcomp1);
 app.use("/activity", form1);
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
