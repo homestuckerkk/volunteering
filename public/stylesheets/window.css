@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Slab', serif;
+    color: #2f404b;
+}
+.main{
+    margin: 50px;
+    width: 300px;
+    height: 400px;
+    border: 12px solid #BC986A;
+    border-top: none;
+    border-left: none;
+    background-color: #eeeded;
+    border-radius: 10px;
+    position: relative;
+}
+img{
+    border-radius: 10px 10px 0 0;
+    width: 312px;
+    height: 200px;
+}
+h1{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 24px;
+}
+p{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+b{
+    color: #BC986A;
+}
+button{
+    position: absolute;
+    width: 175px;
+    height: 35px;
+    margin-top: 12px;
+    left: 20%;
+    background-color: #2f404b;
+    color: #FBEEC1;
+    border: none;
+    border-radius: 3px;
+}
+button:hover{
+    background-color: #FBEEC1;
+    color: #2f404b;
+}

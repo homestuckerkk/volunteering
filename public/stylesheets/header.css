@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Slab', serif;
+}
+
+.main{
+    width: auto;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #BC986A;
+}
+
+.search{
+    display: flex;
+}
+
+img{
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+hr{
+    background-color: #2f404b;
+    width: auto;
+    height: 4px;
+}
+
+input{
+    width: 200px;
+    height: 40px;
+    padding-left: 4px;
+    border-radius: 8px;
+    border: 2px solid #2f404b;
+    background-color: #eeeded;
+    color: #BC986A;
+    font-size: 16px;
+}
+
+select{
+    width: 200px;
+    height: 44px;
+    padding-left: 4px;
+    margin-left: 40px;
+    border-radius: 8px;
+    border: 2px solid #2f404b;
+    background-color: #eeeded;
+    color: #BC986A;
+    font-size: 16px;
+}
