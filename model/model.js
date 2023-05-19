@@ -57,33 +57,47 @@ function checkinLoginData(callback, data) {
     let query = "SELECT * FROM User WHERE email = ? AND password = ?";
 
     volunteering.all(query, data, (err, rows) => {
-        console.log(rows)
+        console.log(rows);
         if (rows.length != 0) {
-            rows = [...rows, "user"]
-            if (err) {
-                callback(err, null);
-            } else {
-                callback(null, rows);
-            };
-            volunteering.close()
-        } else {
-            
-            let query = "SELECT * FROM Company WHERE email = ? AND password = ?";
-
-            volunteering.all(query, data, (err, rows) => {
-                console.log(rows)
-                rows = [...rows, "company"]
+            if (data[1] == rows[0]['password'] && data[0] == rows[0]['name']) {
+                console.log(rows, 1)
+                rows = [...rows, 'user']
                 if (err) {
                     callback(err, null);
                 } else {
                     callback(null, rows);
                 };
                 volunteering.close()
+            }
+            else {
+                callback('Неверные данные', null);
+                volunteering.close()
+            }
+        } else {
+            let query = "SELECT * FROM Company WHERE email = ? AND password = ?";
+            volunteering.all(query, data, (err, rowss) => {
+                if (rowss.length != 0) {
+                    if (data[1] == rowss[0]['password'] && data[0] == rowss[0]['name']) {
+                        console.log(rowss, 2)
+                        rowss = [...rowss, 'company']
+                        if (err) {
+                            callback(err, null);
+                        } else {
+                            callback(null, rowss);
+                        };
+                        volunteering.close()
+                    } else {
+                        callback('Неверные данные', null);
+                        volunteering.close()
+                    }
+                } else {
+                    callback('Неверные данные', null)
+                }
             })
         }
-    }) 
-}
 
+    })
+}
 
 
 
