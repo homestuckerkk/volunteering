@@ -3,10 +3,15 @@ var router = express.Router();
 const jwt = require('jsonwebtoken');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var token = req.headers.authorization.split(" ")[1];
+  console.log(req.cookies.token, 1);
+  var token = req.cookies.token;
   var decoded_token = jwt.verify(token, "789567");
-  if (decoded_token){
-    res.render('personal_area_user');
+  console.log(decoded_token);
+  if (decoded_token != 'undefined'){
+    let data = {name: decoded_token["name"], email: decoded_token["email"]}
+    res.render('personal_area_user', data);
+  } else {
+    res.status(401).send(error);
   }
 });
 

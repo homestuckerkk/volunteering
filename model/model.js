@@ -58,14 +58,33 @@ function checkinLoginData(callback, data) {
 
     volunteering.all(query, data, (err, rows) => {
         console.log(rows)
-        if (err) {
-            callback(err, null);
+        if (rows.length != 0) {
+            rows = [...rows, "user"]
+            if (err) {
+                callback(err, null);
+            } else {
+                callback(null, rows);
+            };
+            volunteering.close()
         } else {
-            callback(null, rows);
-        };
-        volunteering.close()
-    })
+            
+            let query = "SELECT * FROM Company WHERE email = ? AND password = ?";
+
+            volunteering.all(query, data, (err, rows) => {
+                console.log(rows)
+                rows = [...rows, "company"]
+                if (err) {
+                    callback(err, null);
+                } else {
+                    callback(null, rows);
+                };
+                volunteering.close()
+            })
+        }
+    }) 
 }
+
+
 
 
 module.exports = {
