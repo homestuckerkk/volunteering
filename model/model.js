@@ -39,7 +39,7 @@ function setRegistrationCompany(callback, data) {
 function setInfoActivity(callback, data) {
     let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
 
-    let query = "INSERT INTO Activity(curator, address, date, type, time) VALUES (?, ?, ?, ?, ?)";
+    let query = "INSERT INTO Activity(name, curator, address, date, type, time, company) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     volunteering.all(query, data, (err, rows) => {
         if (err) {
@@ -59,7 +59,7 @@ function checkinLoginData(callback, data) {
     volunteering.all(query, data, (err, rows) => {
         console.log(rows);
         if (rows.length != 0) {
-            if (data[1] == rows[0]['password'] && data[0] == rows[0]['name']) {
+            if (data[1] == rows[0]['password'] && data[0] == rows[0]['email']) {
                 console.log(rows, 1)
                 rows = [...rows, 'user']
                 if (err) {
@@ -77,7 +77,7 @@ function checkinLoginData(callback, data) {
             let query = "SELECT * FROM Company WHERE email = ? AND password = ?";
             volunteering.all(query, data, (err, rowss) => {
                 if (rowss.length != 0) {
-                    if (data[1] == rowss[0]['password'] && data[0] == rowss[0]['name']) {
+                    if (data[1] == rowss[0]['password'] && data[0] == rowss[0]['email']) {
                         console.log(rowss, 2)
                         rowss = [...rowss, 'company']
                         if (err) {
@@ -97,14 +97,29 @@ function checkinLoginData(callback, data) {
         }
 
     })
-}
+};
 
+function getInfoActivity(callback, data){
+    let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
+
+    let query = "SELECT * FROM Activity WHERE company = ?";
+    volunteering.all(query, data, (err, rows) => {
+        if (err) {
+            callback(err, null);
+        } else {
+            callback(null, rows);
+        };
+        volunteering.close()
+    })
+
+}
 
 
 module.exports = {
     setRegistrationUser,
     setRegistrationCompany,
     setInfoActivity,
-    checkinLoginData
+    checkinLoginData,
+    getInfoActivity
 };
 

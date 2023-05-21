@@ -36,6 +36,7 @@ db.serialize(() =>{
     db.run(`
     CREATE TABLE IF NOT EXISTS Activity (
         activity_id INTEGER UNIQUE,
+        name TEXT NOT NULL,
         curator TEXT NOT NULL,
         address TEXT NOT NULL,
         date TEXT NOT NULL,

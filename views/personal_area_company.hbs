@@ -26,15 +26,17 @@
     <div><hr></div>
     </div>
     <div class="activity">
-        <h1>Проведённые мероприятия</h1>
-        <hr>
-    
-        <h1>Созданные мероприятия</h1>
-        <hr>
-      
-        <h1>Нерассмотренные мероприятия</h1>
-        <hr>
-    
+        <h1>Мероприятия</h1>
+        {{#each rows}}
+            <div class="main">
+            <img src="/images/first.jpg">
+            <h1>{{this.name}}</h1>
+            <h4>{{this.address}}</h4>
+            <p>Дата: <b>{{this.date}}</b></p>
+            <p>Время: <b>{{this.time}}</b></p>
+            <button>Подробнее</button>
+    </div>
+        {{/each}}
     </div>
 </body>
 </html>
