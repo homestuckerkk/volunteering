@@ -20,15 +20,14 @@ var form1 = require("./routes/form1")
 var auto1 = require("./routes/auto1")
 
 var app = express();
-
-var hbs = create({
-  extname: '.hbs', 
-  defaultLayout: __dirname + "/views/layouts/index.hbs",
-  layoutsDir: path.join(__dirname, "../views/layouts"),
-  partialsDir: path.join(__dirname, "/views/partials")
+const hbs = create({
+  extname: 'hbs',
+  defaultLayout: 'layout',
+  layoutsDir: __dirname + '/views/layouts/',
+  partialsDir: __dirname + '/views/partials/'
 });
 
-app.engine('handlebars', hbs.engine);
+app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', './views');
 app.use(express.static('public'));
@@ -67,7 +66,5 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-app.listen(3000)
 
 module.exports = app;
