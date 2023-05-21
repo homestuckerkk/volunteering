@@ -1,5 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 const jwt = require('jsonwebtoken');
+const { check } = require('express-validator');
 function setRegistrationUser(callback, data) {
     let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
 

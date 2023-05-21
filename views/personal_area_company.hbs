@@ -25,17 +25,10 @@
     </div>
     <div><hr></div>
     </div>
-    <div class="activity">
+   <div class="activity">
         <h1>Мероприятия</h1>
         {{#each rows}}
-            <div class="main">
-            <img src="/images/first.jpg">
-            <h1>{{this.name}}</h1>
-            <h4>{{this.address}}</h4>
-            <p>Дата: <b>{{this.date}}</b></p>
-            <p>Время: <b>{{this.time}}</b></p>
-            <button>Подробнее</button>
-    </div>
+            {{> window name=name address=address date=date time=time}}
         {{/each}}
     </div>
 </body>
