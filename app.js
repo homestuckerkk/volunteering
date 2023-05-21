@@ -30,7 +30,7 @@ const hbs = create({
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', './views');
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 app.set('views', path.join(__dirname, 'views'));
 
 
@@ -66,7 +66,5 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-app.listen(3000)
 
 module.exports = app;
