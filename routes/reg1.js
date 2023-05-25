@@ -5,35 +5,35 @@ const { check } = require('express-validator');
 
 
 router.post('/', function (req, res, next) {
-    let a = [req.body.name, req.body.email, req.body.phone_number, req.body.date_of_birth, req.body.password, "user"]
-    console.log(a);
-    model.setRegistrationUser((err) => {
-        if(err){
-            console.log(err);
-        } else {
-            if(check("name").notEmpty() && check("name").isString()){
-                if(check("email").isEmail()){
-                    if(check("phone_number").isMobilePhone()){
-                        if(check("date_of_birth").isDate()){
-                            if(Number(req.body.password) != 0 && req.body.password.length >= 8){
-                                res.redirect("/auto")
-                            }else{
-                                alert("Неверно введённые данные")
-                            }
-                        }else{
-                            alert("Неверно введённые данные")
-                        }
-                    }else{
-                        alert("Неверно введённые данные")
+    if (check(req.body.name).notEmpty() && check(req.body.name).isString()) {
+        if (check(req.body.email).isEmail()) {
+            if (check(req.body.phone_number).isMobilePhone()) {
+                if (check(req.body.date_of_birth).isDate()) {
+                    if (req.body.password.length >= 8 && req.body.password==req.body.password1) {
+                        let a = [req.body.name, req.body.email, req.body.phone_number, req.body.date_of_birth, req.body.password, "user"]
+                        console.log(a);
+                        model.setRegistrationUser((err, rows) => {
+                            if (err) {
+                                console.log(err);
+                            } else {
+                                res.redirect("/auto");
+                            };
+                        }, a)
+                    } else {
+                        res.send("Неверно введённые данные");
                     }
-                }else{
-                    alert("Неверно введённые данные")
+                } else {
+                    res.send("Неверно введённые данные");
                 }
-            }else{
-                alert("Неверно введённые данные")
+            } else {
+                res.send("Неверно введённые данные");
             }
-        };
-    },a)
+        } else {
+            res.send("Неверно введённые данные");
+        }
+    } else {
+        res.send("Неверно введённые данные");
+    }
 })
 
 module.exports = router;

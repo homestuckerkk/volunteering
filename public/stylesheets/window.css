@@ -1,10 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto Slab', serif;
-    color: #2f404b;
-}
-.main{
+.window {
     margin: 50px;
     width: 300px;
     height: 400px;
@@ -15,25 +9,34 @@
     border-radius: 10px;
     position: relative;
 }
-img{
+
+.image-window {
     border-radius: 10px 10px 0 0;
     width: 312px;
     height: 200px;
 }
-h1{
+
+.caption-window {
     margin-left: 10px;
     margin-top: 10px;
     font-size: 24px;
 }
-p{
+
+.date-window {
     margin-left: 10px;
     margin-top: 10px;
     font-size: 18px;
-}
-b{
     color: #BC986A;
 }
-button{
+
+.time-window {
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #BC986A;
+}
+
+.button-window {
     position: absolute;
     width: 175px;
     height: 35px;
@@ -44,7 +47,8 @@ button{
     border: none;
     border-radius: 3px;
 }
-button:hover{
+
+.button-window:hover {
     background-color: #FBEEC1;
     color: #2f404b;
 }
