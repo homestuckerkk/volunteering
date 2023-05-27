@@ -15,12 +15,22 @@ header {
 
 footer{
   background-color: #2f404b;
+  height: 220px;
 }
 
 main {
-  max-width: 1400px;
+  max-width: 2000px;
   margin: 0 auto;
   min-height: calc(100vh - 80px);
+  background-color: #FBEEC1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+header form{
+  display: flex;
 }
 
 .search-block{
@@ -35,13 +45,23 @@ header img{
   margin-right: 20px;
 }
 
-hr{
+header hr{
   background-color: #2f404b;
   width: auto;
   height: 4px;
 }
 
-input{
+
+.search-block > input:nth-child(1){
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: none;
+  background-color: #BC986A;
+}
+
+header input{
   width: 200px;
   height: 40px;
   padding-left: 4px;
@@ -52,7 +72,7 @@ input{
   font-size: 16px;
 }
 
-select{
+header select{
   width: 200px;
   height: 44px;
   padding-left: 4px;
@@ -64,21 +84,13 @@ select{
   font-size: 16px;
 }
 
-.main{
-  width: auto;
-  height: 200px;
-  color: #FBEEC1;
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
 
-}
-
-.icons{
+.social-media-icons{
   display: flex;
   justify-content: center;
 }
-.text{
+
+.footer-text{
   height: 100px;
   display: flex;
   justify-content: space-around;
@@ -91,12 +103,22 @@ footer img{
   margin-top: 26px;
 }
 
-p{
+.footer-text > p{
   margin-top: 44px;
+  color: #eeeded;
 }
 
-hr{
+footer hr{
   background-color: #BC986A;
   width: auto;
   height: 2px;
+}
+
+.user-button > input:nth-child(1){
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: none;
+  background-color: #BC986A;
 }

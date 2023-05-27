@@ -41,7 +41,7 @@ function setRegistrationCompany(callback, data) {
 function setInfoActivity(callback, data) {
     let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
 
-    let query = "INSERT INTO Activity(name, curator, address, date, type, time, company) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    let query = "INSERT INTO Activity(name, curator, address, district, date, type, time, company) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     volunteering.all(query, data, (err, rows) => {
         if (err) {
@@ -131,6 +131,21 @@ function getInfoActivityForHome(callback, data){
 
 }
 
+function getInfoActivityForSearch(callback, data){
+    let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
+
+    let query = "SELECT * FROM Activity WHERE district = ? OR type = ?";
+    volunteering.all(query, data, (err, rows) => {
+        if (err) {
+            callback(err, null);
+        } else {
+            callback(null, rows);
+        };
+        volunteering.close()
+    })
+
+}
+
 
 module.exports = {
     setRegistrationUser,
@@ -138,6 +153,7 @@ module.exports = {
     setInfoActivity,
     checkinLoginData,
     getInfoActivity,
-    getInfoActivityForHome
+    getInfoActivityForHome,
+    getInfoActivityForSearch
 };
 

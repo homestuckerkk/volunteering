@@ -1,16 +1,38 @@
+<div class="form-everything">
     <form action="/activity" method="post">
-        <div class="info">
+        <div class="info-about-activity">
             <h1>Создание мероприятия</h1>
             <input name="name" type="text" placeholder="  Название">
             <input name="curator" type="text" placeholder="  Куратор">
-            <input name="address" type="text" placeholder="  Место проведения">
+            <input name="address" type="text" placeholder="  Адрес">
+            <select name="district_activity">
+                <option disabled selected>Место проведения</option>
+                <option value="Дзержинский район">Дзержинский район</option>
+                <option value="Кировский район">Кировский район</option>
+                <option value="Калининский район">Калининский район</option>
+                <option value="Ленинский район">Ленинский район</option>
+                <option value="Октябрьский район">Октябрьский район</option>
+                <option value="Первомайский район">Первомайский район</option>
+                <option value="Советский район">Советский район</option>
+                <option value="Центральный район">Центральный район</option>
+                <option value="Краснообск">Краснообск</option>
+                <option value="Академгородок">Академгородок</option>
+            </select>
             <input name="date" type="text" placeholder="  Дата проведения">
-            <input  name="time" type="text" placeholder="  Время начала">
-            <input name="type" type="text" placeholder="  Тип">
+            <input name="time" type="text" placeholder="  Время начала">
+            <select name="type">
+                <option disabled selected>Тип мероприятия</option>
+                <option value="Помощь ветеранам">Помощь ветеранам</option>
+                <option value="Помощь детским домам">Помощь детским домам</option>
+                <option value="Помощь животным">Помощь животным</option>
+                <option value="Помощь медицинским центрам">Помощь медицинским центрам</option>
+                <option value="Экологическая помощь">Экологическая помощь</option>
+            </select>
             <button type="submit">Отправить</button>
         </div>
-        <div class="img">
+        <div class="image-of-activity">
             <h2>Прикрепите фотографию</h2>
-            <input class="img1"type="file">
+            <input type="file">
         </div>
     </form>
+</div>

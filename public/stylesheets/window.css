@@ -1,7 +1,7 @@
 .window {
     margin: 50px;
     width: 300px;
-    height: 400px;
+    height: 450px;
     border: 12px solid #BC986A;
     border-top: none;
     border-left: none;
@@ -20,6 +20,13 @@
     margin-left: 10px;
     margin-top: 10px;
     font-size: 24px;
+}
+
+.address-window{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #BC986A;
 }
 
 .date-window {

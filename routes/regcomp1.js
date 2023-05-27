@@ -11,7 +11,7 @@ router.post('/', function (req, res, next) {
                     if (req.body.password.length >= 8 && req.body.password==req.body.password1) {
                         let a = [req.body.name_of_company, req.body.name_of_creator, req.body.email, req.body.type, req.body.password, req.body.file, "company"]
                         console.log(a);
-                        model.setRegistrationUser((err, rows) => {
+                        model.setRegistrationCompany((err) => {
                             if (err) {
                                 console.log(err);
                             } else {
@@ -19,19 +19,19 @@ router.post('/', function (req, res, next) {
                             };
                         }, a)
                     } else {
-                        res.send("Неверно введённые данные");
+                        res.send("Неверно введённые данные, a");
                     }
                 } else {
-                    res.send("Неверно введённые данные");
+                    res.send("Неверно введённые данные, b");
                 }
             } else {
-                res.send("Неверно введённые данные");
+                res.send("Неверно введённые данные, c");
             }
         } else {
-            res.send("Неверно введённые данные");
+            res.send("Неверно введённые данные, d");
         }
     } else {
-        res.send("Неверно введённые данные");
+        res.send("Неверно введённые данные, f");
     }
 })
 

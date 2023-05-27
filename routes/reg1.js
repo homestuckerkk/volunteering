@@ -12,7 +12,7 @@ router.post('/', function (req, res, next) {
                     if (req.body.password.length >= 8 && req.body.password==req.body.password1) {
                         let a = [req.body.name, req.body.email, req.body.phone_number, req.body.date_of_birth, req.body.password, "user"]
                         console.log(a);
-                        model.setRegistrationUser((err, rows) => {
+                        model.setRegistrationUser((err) => {
                             if (err) {
                                 console.log(err);
                             } else {

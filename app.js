@@ -18,6 +18,9 @@ var reg1 = require("./routes/reg1")
 var regcomp1 = require("./routes/regcomp1")
 var form1 = require("./routes/form1")
 var auto1 = require("./routes/auto1")
+var homechosen = require("./routes/homechosen")
+var homechosen1 = require("./routes/homechosen1")
+
 
 var app = express();
 const hbs = create({
@@ -52,7 +55,8 @@ app.use("/registering", reg1);
 app.use("/regcompany", regcomp1);
 app.use("/activity", form1);
 app.use("/loging", auto1)
-
+app.use("/homechosen", homechosen)
+app.use("/homechosen1", homechosen1)
 
 app.use(function (req, res, next) {
   next(createError(404));

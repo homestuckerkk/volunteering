@@ -39,6 +39,7 @@ db.serialize(() =>{
         name TEXT NOT NULL,
         curator TEXT NOT NULL,
         address TEXT NOT NULL,
+        district TEXT NOT NULL,
         date TEXT NOT NULL,
         time TEXT NOT NULL,
         type TEXT NOT NULL,
