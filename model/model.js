@@ -41,7 +41,7 @@ function setRegistrationCompany(callback, data) {
 function setInfoActivity(callback, data) {
     let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
 
-    let query = "INSERT INTO Activity(name, curator, address, district, date, type, time, company) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    let query = "INSERT INTO Activity(name, curator, address, district, date, type, time, image, company) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     volunteering.all(query, data, (err, rows) => {
         if (err) {
@@ -146,6 +146,36 @@ function getInfoActivityForSearch(callback, data){
 
 }
 
+function setImageCompany(callback, data) {
+    let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
+
+    let query = "UPDATE Company SET image_company = ?";
+
+    volunteering.all(query, data, (err, rows) => {
+        if (err) {
+            callback(err, null);
+        } else {
+            callback(null, rows);
+        };
+        volunteering.close()
+    })
+};
+
+function setImageUser(callback, data) {
+    let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
+
+    let query = "UPDATE User SET image_user = ?";
+
+    volunteering.all(query, data, (err, rows) => {
+        if (err) {
+            callback(err, null);
+        } else {
+            callback(null, rows);
+        };
+        volunteering.close()
+    })
+};
+
 
 module.exports = {
     setRegistrationUser,
@@ -154,6 +184,8 @@ module.exports = {
     checkinLoginData,
     getInfoActivity,
     getInfoActivityForHome,
-    getInfoActivityForSearch
+    getInfoActivityForSearch,
+    setImageUser,
+    setImageCompany
 };
 

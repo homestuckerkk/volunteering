@@ -59,3 +59,7 @@
     background-color: #FBEEC1;
     color: #2f404b;
 }
+
+.window > a{
+    text-decoration: none;
+}

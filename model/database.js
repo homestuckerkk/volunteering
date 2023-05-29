@@ -15,6 +15,7 @@ db.serialize(() =>{
         email TEXT NOT NULL UNIQUE,
         date_of_birth TEXT NOT NULL,
         password TEXT NOT NULL,
+        image_user TEXT,
         role TEXT NOT NULL,
         PRIMARY KEY (id)
     )
@@ -28,6 +29,7 @@ db.serialize(() =>{
         type TEXT NOT NULL,
         password TEXT NOT NULL,
         file TEXT NOT NULL,
+        image_company TEXT,
         role TEXT NOT NULL,
         PRIMARY KEY (id),
         FOREIGN KEY (name_of_creator) REFERENCES User(id)
@@ -43,6 +45,7 @@ db.serialize(() =>{
         date TEXT NOT NULL,
         time TEXT NOT NULL,
         type TEXT NOT NULL,
+        image TEXT NOT NULL,
         company TEXT NOT NULL,
         PRIMARY KEY (activity_id),
         FOREIGN KEY (company) REFERENCES Company(id)

@@ -1,23 +1,27 @@
-    <div class="all">
-    <div class="imag">
-        <img class='image' src="/images/загружено.jpg">
-        <button>Изменить фото профиля</button>
-    </div>
-    <div class="info">
-        <h1>{{name}}</h1>
-        <h1>{{email}}</h1>
-        <h1>description</h1> 
-        <input type="text">
-        <div class="buttons">
-            <a href=""><button>Забыли пароль?</button></a>
-            <a href="form"><button>Создать мероприятие</button></a>
+<div class="allcompany">
+    <div class="personal_area_company">
+        <form class="image-of_company" enctype="multipart/form-data" method="post" action="/changedimagecomapny">
+            <img class='image' src="/images/{{image_company}}">
+            <input name="image" type="file">
+            <button type="submit">Изменить фото профиля</button>
+        </form>
+        <div class="info-about-company">
+            <h1>{{name}}</h1>
+            <h1>{{email}}</h1>
+            <div class="buttons-personal-area-company">
+                <a href=""><button>Забыли пароль?</button></a>
+                <a href="form"><button>Создать мероприятие</button></a>
+            </div>
+        </div>
+        <div>
+            <hr>
         </div>
     </div>
-    <div><hr></div>
-    </div>
-   <div class="activity">
+    <div class="activity-of-company">
         <h1>Мероприятия</h1>
+        <hr>
         {{#each rows}}
-            {{> window name=name address=address date=date time=time}}
+        {{> window name=name address=address date=date time=time}}
         {{/each}}
     </div>
+</div>

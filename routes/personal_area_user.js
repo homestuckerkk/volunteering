@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   var decoded_token = jwt.verify(token, "789567");
   console.log(decoded_token);
   if (decoded_token != 'undefined'){
-    let data = {name: decoded_token["name"], email: decoded_token["email"]}
+    let data = { name: decoded_token["name"], email: decoded_token["email"], image_user: decoded_token["image_user"] }
     res.render('personal_area_user', data);
   } else {
     res.status(401).send(error);

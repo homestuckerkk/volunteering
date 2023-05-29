@@ -1,10 +1,9 @@
 
 .registrarion-for-company{
     display: flex;
-    margin-left: 300px;
     background-color: #FBEEC1;
-    width: 950px;
-    height: 600px;
+    width: 2000px;
+    height: 1000px;
     justify-content: center;
 
 }
@@ -15,7 +14,7 @@
     width: 250px;
     height: 500px;
     margin-left: 100px;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 .button-reg{
     display: flex;
@@ -32,6 +31,7 @@ form > input{
     background-color: #eeeded;
     color: #BC986A;
     font-size: 18px;
+    margin-top: 10px;
 }
 .button-reg > button{
     width: 250px;

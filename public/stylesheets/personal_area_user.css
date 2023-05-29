@@ -1,8 +1,11 @@
 
 .profile-image-user > img{
-    width: 300px;
-    height: 400px;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 300px;
+    max-height: 400px;
     display: flex;
+    border: 3px solid;
 }
 .perconal-area-user{
     display: flex;

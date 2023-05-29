@@ -1,63 +1,105 @@
-*{
-    margin: 0;
-    padding: 0;
+.image-of_company>img {
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 300px;
+    max-height: 400px;
+    display: flex;
+    border: 3px solid;
 }
 
-body{
-    background-color: #eeeded;
-    color: #2f404b;
-}
-.image{
-    width: 300px;
-    height: 400px;
-    display: flex;
-}
-.all{
-    display: flex;
-    justify-content: space-evenly;
-}
-.info{
-    width: 1000px;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-}
-p{
-    margin-top: 50px;
-}
-h1:nth-child(1){
+.image-of_company{
     margin-top: 20px;
 }
-h1:nth-child(2){
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-a{
-    margin-top: 120px;
-    text-decoration: none;
-}
-button{
+
+
+.image-of_company>button {
     width: 175px;
     height: 35px;
     background-color: #2f404b;
     color: #FBEEC1;
     border: none;
-    border-radius: 3px; 
+    border-radius: 3px;
+    margin-top: 50px;
+    margin-left: 52px;
 }
-button:nth-child(2){
-    margin-left: 60px;
-    margin-top: 20px;
-}
-button:hover{
+
+.image-of_company>button:hover {
     background-color: #FBEEC1;
     color: #2f404b;
 }
-.buttons{
+
+.allcompany {
+    display: flex;
+    flex-direction: column;
+    width: 2000px;
+    height: 1600px;
+}
+
+.personal_area_company {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #eeeded;
+    color: #2f404b;
+}
+
+.info-about-company {
+    width: 1000px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-about-company>h1:nth-child(1) {
+    margin-top: 20px;
+}
+
+.info-about-company>h1:nth-child(2) {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.buttons-personal-area-company>a {
+    margin-top: 120px;
+    text-decoration: none;
+}
+
+.buttons-personal-area-company>a>button {
+    width: 175px;
+    height: 35px;
+    background-color: #2f404b;
+    color: #FBEEC1;
+    border: none;
+    border-radius: 3px;
+}
+
+.buttons-personal-area-company>a>button:nth-child(2) {
+    margin-left: 60px;
+    margin-top: 20px;
+}
+
+.buttons-personal-area-company>a>button:hover {
+    background-color: #FBEEC1;
+    color: #2f404b;
+}
+
+.buttons-personal-area-company {
     width: 400px;
     display: flex;
     justify-content: space-between;
 }
-.activity{
+
+.activity-of-company {
     display: flex;
     flex-direction: column;
+}
+
+.activity-of-company>h1 {
+    margin-left: 46px;
+}
+
+.activity-of-company>hr {
+    background-color: #BC986A;
+    width: auto;
+    height: 2px;
+    margin-top: 10px;
 }

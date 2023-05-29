@@ -1,9 +1,8 @@
 .registration{
     display: flex;
-    margin-left: 300px;
-    width: 950px;
-    height: 600px;
-    background-color: #eeeded;
+    width: 2000px;
+    height: 1000px;
+    background-color: #2f404b;
     justify-content: center;
 
 }

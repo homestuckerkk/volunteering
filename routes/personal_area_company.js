@@ -2,7 +2,7 @@ var express = require('express');
 const model = require(`../model/model`);
 var router = express.Router();
 const jwt = require('jsonwebtoken');
-/* GET home page. */
+
 router.get('/', function (req, res, next) {
   console.log(req.cookies.token, 1);
   var token = req.cookies.token;
@@ -14,7 +14,8 @@ router.get('/', function (req, res, next) {
         console.log(err);
         res.redirect('/auto');
       } else {
-        let data = { name: decoded_token["name"], email: decoded_token["email"], rows : rows }
+        let data = { name: decoded_token["name"], email: decoded_token["email"], image_company: decoded_token["image_company"], rows : rows }
+        console.log(data)
         res.render('personal_area_company', data);
       };
     }, decoded_token.id)

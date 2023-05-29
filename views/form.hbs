@@ -1,5 +1,5 @@
 <div class="form-everything">
-    <form action="/activity" method="post">
+    <form action="/activity" method="post" enctype="multipart/form-data">
         <div class="info-about-activity">
             <h1>Создание мероприятия</h1>
             <input name="name" type="text" placeholder="  Название">
@@ -32,7 +32,7 @@
         </div>
         <div class="image-of-activity">
             <h2>Прикрепите фотографию</h2>
-            <input type="file">
+            <input name="image" type="file">
         </div>
     </form>
 </div>
