@@ -55,7 +55,7 @@ db.serialize(() =>{
     CREATE TABLE IF NOT EXISTS Partisipants(
         participants_id INTEGER UNIQUE,
         name_of_activity TEXT NOT NULL,
-        user_id_1 INTEGER UNIQUE,
+        user_id_1 INTEGER,
         PRIMARY KEY (participants_id),
         FOREIGN KEY (name_of_activity) REFERENCES Activity(activity_id),
         FOREIGN KEY (user_id_1) REFERENCES User(id),

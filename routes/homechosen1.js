@@ -3,11 +3,10 @@ var express = require('express');
 var router = express.Router();
 
 router.post('/', function (req, res, next) {
-    console.log(req.body.search_word, 1);
-    res.cookie("data", { "district": req.body.district_activity, "type": req.body.type }, {
+    res.cookie("data", { "district": req.body.district, "type": req.body.type }, {
         httpOnly: true
     });
-
+    console.log(req.body.district);
 
     res.redirect("/homechosen")
 })

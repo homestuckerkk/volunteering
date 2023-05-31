@@ -1,6 +1,7 @@
 <div class="cart">
+    {{#each rows}}
     <div class="image-for-activity">
-        <img src="/images/first.jpg">
+        <img src="/images/{{image}}">
     </div>
     <div class="text-for-activity">
         <h1>{{name}}</h1>
@@ -10,8 +11,11 @@
         <p>Дата: {{date}}</p>
         <p>Время: {{time}}</p>
         <p>Тип: {{type}}</p>
-        <div class="button-for-activity">
-            <button type="">Записаться</button>
-        </div>
+        <form action="/signuptoact" method="post">
+            <div class="button-for-activity">
+                <input type="hidden" name="idd" value="{{activity_id}}">
+            </div>
+        </form>
     </div>
+    {{/each}}
 </div>

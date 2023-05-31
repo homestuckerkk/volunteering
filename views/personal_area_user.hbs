@@ -1,21 +1,26 @@
-<div class="perconal-area-user">
-    <form  enctype="multipart/form-data" method="post" action="/changedimageuser" class="profile-image-user">
-        <img  src="/images/{{image_user}}">
-        <input name="image" type="file">
-        <button type="submit">Изменить фото профиля</button>
-    </form>
-    <div class="user-info">
-        <h1>{{name}}</h1>
-        <h1>{{email}}</h1>
-        <h1>description</h1>
-        <input type="text">
-        <a href=""><button>Изменить пароль</button></a>
+<div class="alluser">
+    <div class="personal-area-user">
+        <form enctype="multipart/form-data" method="post" action="/changedimageuser" class="profile-image-user">
+            <img src="/images/{{image_user}}">
+            <input name="image" type="file">
+            <button type="submit">Изменить фото профиля</button>
+        </form>
+        <div class="user-info">
+            <h1>{{name}}</h1>
+            <h1>{{email}}</h1>
+            <div class="buttons-pеrsonal-area-user">
+                <a href=""><button>Изменить пароль</button></a>
+            </div>
+        </div>
+        <div>
+            <hr>
+        </div>
     </div>
-    <div>
+    <div class="user-activities">
+        <h1>Запланированные мероприятия</h1>
         <hr>
+        {{#each rows}}
+        {{> window id=activity_id name=name address=address date=date time=time}}
+        {{/each}}
     </div>
-</div>
-<div class="user-activities">
-    <h1>Посещённые мероприятия</h1>
-    <hr>
 </div>

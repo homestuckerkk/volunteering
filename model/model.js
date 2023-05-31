@@ -177,6 +177,82 @@ function setImageUser(callback, data) {
 };
 
 
+function getImageCompany(callback, data) {
+    let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
+
+    let query = "SELECT * FROM Company WHERE id = ?";
+    volunteering.all(query, data, (err, rows) => {
+        if (err) {
+            callback(err, null);
+        } else {
+            callback(null, rows);
+        };
+        volunteering.close()
+    })
+
+}
+
+function getImageUser(callback, data) {
+    let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
+
+    let query = "SELECT * FROM User WHERE id = ?";
+    volunteering.all(query, data, (err, rows) => {
+        if (err) {
+            callback(err, null);
+        } else {
+            callback(null, rows);
+        };
+        volunteering.close()
+    })
+
+}
+
+function getInfoOneActivityForHome(callback, data){
+    let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
+
+    let query = "SELECT * FROM Activity WHERE activity_id = ?";
+    volunteering.all(query, data, (err, rows) => {
+        if (err) {
+            callback(err, null);
+        } else {
+            callback(null, rows);
+        };
+        volunteering.close()
+    })
+
+}
+
+function signUpToActivity(callback, data) {
+    let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
+
+    let query = "INSERT INTO Partisipants(name_of_activity, user_id_1) VALUES (?, ?)";
+    volunteering.all(query, data, (err, rows) => {
+        if (err) {
+            callback(err, null);
+        } else {
+            callback(null, rows);
+        };
+        volunteering.close()
+    })
+
+}
+
+function getActivityUser(callback, data) {
+    let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
+
+    let query = "SELECT * FROM Activity JOIN Partisipants ON Activity.activity_id = Partisipants.name_of_activity WHERE user_id_1 = ?";
+    volunteering.all(query, data, (err, rows) => {
+        if (err) {
+            callback(err, null);
+        } else {
+            callback(null, rows);
+        };
+        volunteering.close()
+    })
+
+}
+
+
 module.exports = {
     setRegistrationUser,
     setRegistrationCompany,
@@ -186,6 +262,11 @@ module.exports = {
     getInfoActivityForHome,
     getInfoActivityForSearch,
     setImageUser,
-    setImageCompany
+    setImageCompany,
+    getImageCompany,
+    getImageUser,
+    getInfoOneActivityForHome,
+    signUpToActivity,
+    getActivityUser
 };
 
