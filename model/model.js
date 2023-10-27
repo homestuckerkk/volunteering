@@ -251,9 +251,89 @@ function getActivityUser(callback, data) {
     })
 
 }
+function changePasswordUser(callback, data){
+    let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
+
+    let query = "UPDATE User SET password = ? WHERE id = ?";
+    volunteering.all(query, data, (err, rows) => {
+        if (err) {
+            callback(err, null);
+        } else {
+            callback(null, rows);
+        };
+        volunteering.close()
+    })
+}
+
+function changePasswordCompany(callback, data){
+    let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
+
+    let query = "UPDATE Company SET password = ? WHERE id = ?"
+    volunteering.all(query, data, (err, rows) => {
+        if (err) {
+            callback(err, null);
+        } else {
+            callback(null, rows);
+        };
+        volunteering.close()
+    })
+}
+
+function changeUsernameUser(callback, data){
+    let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
+
+    let query = "UPDATE User SET name = ? WHERE id = ?";
+    volunteering.all(query, data, (err, rows) => {
+        if (err) {
+            callback(err, null);
+        } else {
+            callback(null, rows);
+        };
+        volunteering.close()
+    })
+}
+
+function checkUsernameUser(callback, data){
+    let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
+
+    let query = "SELECT * FROM User WHERE name = ?";
+    volunteering.all(query, data, (err, rows) => {
+        if (rows.length != 0){
+            if (err) {
+                callback(err, null);
+            } else {
+                callback(null, rows);
+            };
+            volunteering.close()
+        } else {
+            callback('Неверные данные', null)
+        }
+    })
+}
+
+function getInfoUser(callback, data){
+    let volunteering = new sqlite3.Database('./model/volunteering.sqlite3');
+
+    let query = "SELECT * FROM User WHERE id = ?";
+    volunteering.all(query, data, (err, rows) => {
+        if (rows.length != 0){
+            if (err) {
+                callback(err, null);
+            } else {
+                callback(null, rows);
+            };
+            volunteering.close()
+        } else {
+            callback('Неверные данные', null)
+        }
+    })
+}
+
 
 
 module.exports = {
+    changePasswordUser,
+    changePasswordCompany,
     setRegistrationUser,
     setRegistrationCompany,
     setInfoActivity,
@@ -267,6 +347,9 @@ module.exports = {
     getImageUser,
     getInfoOneActivityForHome,
     signUpToActivity,
-    getActivityUser
+    getActivityUser,
+    changeUsernameUser,
+    getInfoUser,
+    checkUsernameUser
 };
 

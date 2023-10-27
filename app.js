@@ -25,6 +25,10 @@ var cart = require("./routes/cart")
 var changedimagecomapny = require("./routes/changedimagecomapny")
 var changedimageuser = require("./routes/changedimageuser")
 var signuptoact = require("./routes/signuptoact")
+var passwchangeform = require("./routes/passwchange") 
+var passwchange = require("./routes/passwchange1") 
+var usernamechangeform = require("./routes/usernamechange") 
+var usernamechange = require("./routes/usernamechange1") 
 
 
 var storage = multer.diskStorage({
@@ -78,7 +82,10 @@ app.use("/cart", cart)
 app.use("/changedimagecomapny", changedimagecomapny)
 app.use("/changedimageuser", changedimageuser)
 app.use("/signuptoact", signuptoact)
-
+app.use("/passwordchange", passwchange)
+app.use("/passwordchangeform", passwchangeform)
+app.use("/usernamechangeform", usernamechangeform) 
+app.use("/usernamechange", usernamechange) 
 
 app.use(function (req, res, next) {
   next(createError(404));

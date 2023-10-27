@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const model = require(`../model/model`);
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  if (req.cookies.token != undefined) {
+  if (req.cookies.token != 'undefined') {
     var token = req.cookies.token;
     var decoded_token = jwt.verify(token, "789567");
     if (decoded_token["role"] == "user") {
@@ -19,8 +19,14 @@ router.get('/', function (req, res, next) {
               res.redirect('/auto');
             } else {
               console.log(rows);
-              let data = { name: decoded_token["name"], email: decoded_token["email"], image_user: rows[0]["image_user"], role: decoded_token["role"], rows: rowss }
-              res.render('personal_area_user', data);
+              model.getInfoUser((err, rowsss) => {
+                if (err){
+                  console.log(err);
+                } else {
+                  let data = { name: rowsss[0]["name"], email: rowsss[0]["email"], image_user: rows[0]["image_user"], role: decoded_token["role"], rows: rowss }
+                  res.render('personal_area_user', data);
+                }
+              }, decoded_token.id)
             }
           }, decoded_token.id)
         }
@@ -36,5 +42,7 @@ router.get('/', function (req, res, next) {
 
 
 });
+
+module.exports = router;
 
 module.exports = router;
